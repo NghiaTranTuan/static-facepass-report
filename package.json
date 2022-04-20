@@ -1,0 +1,15 @@
+{
+  "name": "statistic-face-engine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "face-engine-report-image.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "csvtojson": "^2.0.10"
+  }
+}

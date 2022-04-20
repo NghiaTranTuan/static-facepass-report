@@ -1,0 +1,1 @@
+timestamp,authentication,organizationId,tag,possibleSubListString,status,topId,isInPossibleSubList,isInInferredIds,isInferredIdInSubList,inferredIdsString,distanceVal,thresholdVal,isGooddistanceVal,worker,opThreshold,secondChanceTopId
