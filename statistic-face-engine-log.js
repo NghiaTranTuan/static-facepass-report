@@ -47,14 +47,14 @@ async function reportByDate({ date }) {
 
     if (key.includes("faceAuthV4")) {
       if (!groupSub.hasOwnProperty(key)) {
-        // if (currenSubCode !== subCode) {
-        currenSubCode = subCode;
-        groupSub[key] = subCode;
-        arrayGroupSub.push({
-          date: formatTimeStamp(actionTimestamp),
-          sub: subCode,
-        });
-        // }
+        if (currenSubCode !== subCode) {
+          currenSubCode = subCode;
+          groupSub[key] = subCode;
+          arrayGroupSub.push({
+            date: formatTimeStamp(actionTimestamp),
+            sub: subCode,
+          });
+        }
       }
     }
 
@@ -146,7 +146,7 @@ async function reportSuccessRate({ date, token }) {
         countSuccess += 1;
       }
 
-      if (item.age && item.age < 12) {
+      if (item.age && item.age <= 12) {
         result["child"] = countChild += 1;
       }
 
@@ -165,7 +165,7 @@ async function reportSuccessRate({ date, token }) {
     console.log(`================== 2022-04-${date} ===================`);
     console.log("[RESULT] : ", result);
     console.log("[TOTAL REQUEST] : ", arr.length);
-    console.log("[TOTAL SUCCESS] : ", countSuccess);
+    console.log(`[TOTAL SUCCESS] : ${countSuccess}%` );
     console.log(
       "[PERCENTAGE RATE] : ",
       calcPercentage(arr.length, countSuccess)
@@ -176,14 +176,18 @@ async function reportSuccessRate({ date, token }) {
 
 async function main() {
   const token = await login();
-
-  await reportSuccessRate({ date: 11, token: token });
-  await reportSuccessRate({ date: 12, token: token });
-  await reportSuccessRate({ date: 13, token: token });
-  await reportSuccessRate({ date: 14, token: token });
-  await reportSuccessRate({ date: 15, token: token });
-  await reportSuccessRate({ date: 16, token: token });
-  await reportSuccessRate({ date: 17, token: token });
+  await reportSuccessRate({ date: "06", token: token });
+  await reportSuccessRate({ date: "07", token: token });
+  await reportSuccessRate({ date: "08", token: token });
+  await reportSuccessRate({ date: "09", token: token });
+  await reportSuccessRate({ date: "10", token: token });
+  await reportSuccessRate({ date: "11", token: token });
+  await reportSuccessRate({ date: "12", token: token });
+  await reportSuccessRate({ date: "13", token: token });
+  await reportSuccessRate({ date: "14", token: token });
+  await reportSuccessRate({ date: "15", token: token });
+  await reportSuccessRate({ date: "16", token: token });
+  await reportSuccessRate({ date: "17", token: token });
 }
 
 main();
