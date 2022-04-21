@@ -165,10 +165,10 @@ async function reportSuccessRate({ date, token }) {
     console.log(`================== 2022-04-${date} ===================`);
     console.log("[RESULT] : ", result);
     console.log("[TOTAL REQUEST] : ", arr.length);
-    console.log(`[TOTAL SUCCESS] : ${countSuccess}%` );
+    console.log("[TOTAL SUCCESS] : ", countSuccess );
     console.log(
       "[PERCENTAGE RATE] : ",
-      calcPercentage(arr.length, countSuccess)
+      calcPercentage(arr.length, countSuccess) , '%'
     );
     console.log(`======================================================\n`);
   }
